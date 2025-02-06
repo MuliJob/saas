@@ -3,4 +3,4 @@ from django.shortcuts import render
 
 def homepage(request):
     """Home page"""
-    return render(request, 'core/base.html')
+    return render(request, 'core/homepage.html')
