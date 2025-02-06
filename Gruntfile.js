@@ -1,8 +1,9 @@
-module.export = function(grunt) {
+module.exports = function(grunt) {
   grunt.initConfig({
     sass: {
       dist: {
         options: {
+          implementation: require('sass'),
           style: 'compressed'
         },
         files: {
@@ -17,7 +18,8 @@ module.export = function(grunt) {
       }
     }
   });
-  grunt.loadNpmTasks('grunt-contrib-sass');
+
+  grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.registerTask('default', ['sass:dist']);
