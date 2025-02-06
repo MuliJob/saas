@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 
@@ -6,6 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SWEN</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="{% static 'styles/main.css' %}">
 </head>
 
 <body>
@@ -15,6 +19,11 @@
     </div>
 
     <div class="navbar-menu">
+      {% if request.user.is_authenticated %}
+        <div class="navbar-start">
+          <a href="{% url 'category' %}" class="navbar-item">Categories</a>
+        </div>
+      {% endif %}
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
