@@ -1,5 +1,5 @@
 """Urls Pattern"""
-from django.contrib import path
+from django.urls import path
 from . import views
 
 urlpatterns = [
