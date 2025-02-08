@@ -3,67 +3,30 @@
 <div class="container">
   <h1 class="title">Categories</h1>
 
+  <a href="{% url 'category_add' %}">Add Category</a>
+
   <div class="columns">
-    <div class="column is-3">
-      <div class="card card-link">
-        <div class="card-content">
-          <div class="media">
-            <div class="media-content">
-              <p class="title is-4">Link title</p>
+    {% for category in categories %}
+      <div class="column is-3">
+        <div class="card card-link">
+          <div class="card-content">
+            <div class="media">
+              <div class="media-content">
+                <p class="title is-4">{{ category.title }}</p>
+              </div>
+            </div>
+
+            <div class="content">
+              {{ category.description }}
             </div>
           </div>
-
-          <div class="content">
-            This is the link description
-          </div>
+          <footer class="card-footer">
+            <a href="{% url 'category' category.id %}" rel="noopener noreferrer" class="card-footer-item">View</a>
+            <a href="" rel="noopener noreferrer" class="card-footer-item">Edit</a>
+          </footer>
         </div>
-        <footer class="card-footer">
-          <a href="" target="_blank" rel="noopener noreferrer" class="card-footer-item">Visit</a>
-          <a href="" target="_blank" rel="noopener noreferrer" class="card-footer-item">Edit</a>
-        </footer>
       </div>
-    </div>
-
-    <div class="column is-3">
-      <div class="card card-link">
-        <div class="card-content">
-          <div class="media">
-            <div class="media-content">
-              <p class="title is-4">Link title</p>
-            </div>
-          </div>
-
-          <div class="content">
-            This is the link description
-          </div>
-        </div>
-        <footer class="card-footer">
-          <a href="" target="_blank" rel="noopener noreferrer" class="card-footer-item">Visit</a>
-          <a href="" target="_blank" rel="noopener noreferrer" class="card-footer-item">Edit</a>
-        </footer>
-      </div>
-    </div>
-
-    <div class="column is-3">
-      <div class="card card-link">
-        <div class="card-content">
-          <div class="media">
-            <div class="media-content">
-              <p class="title is-4">Link title</p>
-            </div>
-          </div>
-
-          <div class="content">
-            This is the link description
-          </div>
-        </div>
-        <footer class="card-footer">
-          <a href="" target="_blank" rel="noopener noreferrer" class="card-footer-item">Visit</a>
-          <a href="" target="_blank" rel="noopener noreferrer" class="card-footer-item">Edit</a>
-        </footer>
-      </div>
-    </div>
-
+    {% endfor %}
   </div>
 </div>
 {% endblock content %}
