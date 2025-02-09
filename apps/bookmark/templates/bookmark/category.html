@@ -3,8 +3,36 @@
 <div class="container">
   <h1 class="title">{{ category.title }}</h1>
 
+  <a href="{% url 'bookmark_add' category.id %}">Add link</a>
+
+  <hr>
+
   {{ category.description }}
-  
-  <p>Links here...</p>
+
+  <hr>
+
+  <div class="columns is-multiline">
+    {% for bookmark in category.bookmarks.all %}
+      <div class="column is-3">
+        <div class="card card-link">
+          <div class="card-content">
+            <div class="media">
+              <div class="media-content">
+                <p class="title is-4">{{ bookmark.title }}</p>
+              </div>
+            </div>
+
+            <div class="content">
+              {{ bookmark.description }}
+            </div>
+          </div>
+          <footer class="card-footer">
+            <a href="{{ bookmark.url }}" target="_blank" class="card-footer-item">Visit</a>
+            <a href="" class="card-footer-item">Edit</a>
+          </footer>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
 </div>
 {% endblock content %}
