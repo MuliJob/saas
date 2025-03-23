@@ -4,6 +4,7 @@
   <h1 class="title">{{ category.title }}</h1>
 
   <a href="{% url 'bookmark_add' category.id %}">Add link</a>
+  <a href="{% url 'category_delete' category.id %}">Delete category</a>
 
   <hr>
 
@@ -28,7 +29,8 @@
           </div>
           <footer class="card-footer">
             <a href="{{ bookmark.url }}" target="_blank" class="card-footer-item">Visit</a>
-            <a href="" class="card-footer-item">Edit</a>
+            <a href="{% url 'bookmark_edit' category.id bookmark.id %}" class="card-footer-item">Edit</a>
+            <a href="{% url 'bookmark_delete' category.id bookmark.id %}" class="card-footer-item">Delete</a>
           </footer>
         </div>
       </div>
