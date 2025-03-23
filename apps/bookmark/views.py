@@ -104,7 +104,7 @@ def bookmark_add(request, category_id):
 
 @login_required
 def bookmark_edit(request, category_id, bookmark_id):
-    """Adding a bookmark"""
+    """Editing a bookmark"""
     bookmark = Bookmark.objects.filter(created_by=request.user).get(pk=bookmark_id)
 
     if request.method == "POST":
@@ -123,3 +123,12 @@ def bookmark_edit(request, category_id, bookmark_id):
     }
 
     return render(request, 'bookmark/bookmark_edit.html', context)
+
+
+@login_required
+def bookmark_delete(request, category_id, bookmark_id):
+    """Deleting a bookmark"""
+    bookmark = Bookmark.objects.filter(created_by=request.user).get(pk=bookmark_id)
+    bookmark.delete()
+
+    return redirect('category', category_id=category_id)

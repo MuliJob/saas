@@ -1,5 +1,5 @@
 from django.urls import path
-from apps.bookmark.views import categories, category, category_add, bookmark_add, bookmark_edit, category_edit, category_delete
+from apps.bookmark.views import categories, category, category_add, bookmark_add, bookmark_edit, bookmark_delete, category_edit, category_delete
 from . import views
 
 urlpatterns = [
@@ -12,4 +12,6 @@ urlpatterns = [
   path('categories/<int:category_id>/add-bookmark/', bookmark_add, name='bookmark_add'),
   path('categories/<int:category_id>/edit-bookmark/<int:bookmark_id>/',
   bookmark_edit, name='bookmark_edit'),
+  path('categories/<int:category_id>/delete-bookmark/<int:bookmark_id>/',
+  bookmark_delete, name='bookmark_delete'),
 ]
