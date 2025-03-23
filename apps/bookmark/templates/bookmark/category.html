@@ -4,6 +4,7 @@
   <h1 class="title">{{ category.title }}</h1>
 
   <a href="{% url 'bookmark_add' category.id %}">Add link</a>
+  <a href="{% url 'category_delete' category.id %}">Delete category</a>
 
   <hr>
 

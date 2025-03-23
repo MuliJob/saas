@@ -70,6 +70,15 @@ def category_edit(request, category_id):
 
     return render(request, 'bookmark/category_edit.html', context)
 
+
+@login_required
+def category_delete(request, category_id):
+    """Deleting a category"""
+    category = Category.objects.filter(created_by=request.user).get(pk=category_id)
+    category.delete()
+
+    return redirect('categories')
+
 @login_required
 def bookmark_add(request, category_id):
     """Adding a bookmark"""
